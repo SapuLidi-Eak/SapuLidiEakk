@@ -1,0 +1,16 @@
+{
+    "name": "kingvypers-discord-bot",
+    "version": "1.0.0",
+    "description": "KingVypers Premium Discord Bot",
+    "main": "bot.js",
+    "type": "module",
+    "scripts": {
+        "start": "node bot.js",
+        "deploy": "node deploy-commands.js"
+    },
+    "dependencies": {
+        "discord.js": "^14.16.3",
+        "dotenv": "^16.4.7",
+        "node-fetch": "^3.3.2"
+    }
+}
