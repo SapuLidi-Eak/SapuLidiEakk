@@ -197,8 +197,8 @@ async function handleFindMyKey(interaction) {
         .setFooter({ text: `${keys.length} key ditemukan  •  KingVypers Premium` })
         .setTimestamp();
 
-    const copyableKeys = results.map(r => r.keyCode).join("\n");
-    await interaction.editReply({ content: `**Copy Keys:**\n\`\`\`text\n${copyableKeys}\n\`\`\``, embeds: [embed] });
+    const copyableKeys = results.map(r => `\`${r.keyCode}\``).join("\n");
+    await interaction.editReply({ content: copyableKeys, embeds: [embed] });
 }
 
 // ─────────────────────────────────────────
@@ -253,7 +253,7 @@ async function handleModal(interaction) {
             .setFooter({ text: "Gunakan Find My Key kapan saja untuk melihat key kamu  •  KingVypers" })
             .setTimestamp();
 
-        await interaction.editReply({ content: `**Copy Key:**\n\`\`\`text\n${keyCode}\n\`\`\``, embeds: [embed] });
+        await interaction.editReply({ content: `\`${keyCode}\``, embeds: [embed] });
     }
 
     // ── GET SCRIPT ──────────────────────────
@@ -274,16 +274,16 @@ async function handleModal(interaction) {
         // Link key ke user
         linkKey(keyCode, userId);
 
-        const scriptsText = loaders.map((scr, idx) => `**Script ${idx + 1}**\n\`\`\`lua\n${scr}\n\`\`\``).join("\n");
+        const scriptsText = loaders.map(scr => `\`${scr}\``).join("\n");
 
         const embed = new EmbedBuilder()
             .setColor(C.success)
             .setAuthor({ name: "KingVypers Premium", iconURL: "https://raw.githubusercontent.com/taurusss1000-design/web/refs/heads/main/Kingvyperslogo.jpg" })
-            .setTitle("📜  Script Loader Kamu")
+            .setTitle("📜  Script Loader")
             .setDescription(
                 `${DIV}\n\n` +
-                `✅ Key \`${keyCode}\` terverifikasi!\n` +
-                `Silakan **Copy Script** di atas ya bro! 👇\n\n` +
+                `✅ Key \`${keyCode}\` terverifikasi.\n` +
+                `Loader script dapat disalin dengan mengetuk teks di atas.\n\n` +
                 `${DIV}`
             )
             .addFields(
@@ -293,7 +293,7 @@ async function handleModal(interaction) {
             .setFooter({ text: "⚠️  RAHASIA — Jangan share script ini ke siapapun!  •  KingVypers" })
             .setTimestamp();
 
-        await interaction.editReply({ content: `**Copy Script:**\n${scriptsText}`, embeds: [embed] });
+        await interaction.editReply({ content: scriptsText, embeds: [embed] });
     }
 
     // ── GET ROLE ────────────────────────────
@@ -386,7 +386,7 @@ async function handleModal(interaction) {
                 .setFooter({ text: "Terima kasih sudah menggunakan KingVypers Premium!  •  Enjoy 🎮" })
                 .setTimestamp();
 
-            await interaction.editReply({ content: `**Copy Key:**\n\`\`\`text\n${keyCode}\n\`\`\``, embeds: [embed] });
+            await interaction.editReply({ content: `\`${keyCode}\``, embeds: [embed] });
         } catch (err) {
             console.error("Get Role error:", err);
             await interaction.editReply({
@@ -458,7 +458,7 @@ async function handleModal(interaction) {
             .setFooter({ text: "HWID Reset  •  KingVypers Premium" })
             .setTimestamp();
 
-        await interaction.editReply({ content: `**Copy Key:**\n\`\`\`text\n${keyCode}\n\`\`\``, embeds: [embed] });
+        await interaction.editReply({ content: `\`${keyCode}\``, embeds: [embed] });
     }
 
     // ── GET STATS ──────────────────────────
@@ -514,7 +514,7 @@ async function handleModal(interaction) {
             .setFooter({ text: "Get Stats  •  KingVypers Premium" })
             .setTimestamp();
 
-        await interaction.editReply({ content: `**Copy Key:**\n\`\`\`text\n${keyCode}\n\`\`\``, embeds: [embed] });
+        await interaction.editReply({ content: `\`${keyCode}\``, embeds: [embed] });
     }
 }
 
